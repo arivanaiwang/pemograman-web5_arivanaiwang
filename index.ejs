@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud </title>
+</head>
+<body>
+    <h1>Daftar  user / pengguna</h1>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>nama</th>
+            <th>email</th>
+            <th>telepon</th>
+            <th>Aksi</th>
+        </tr>
+        <% users.forEach(pengguna => { %>
+        <tr>
+            <td><%= pengguna.id %></td>
+            <td><%= pengguna.name %></td>
+            <td><%= pengguna.email %></td>
+            <td><%= pengguna.phone %></td>
+            <td>
+                <a href="/edit/<% pengguna.id %>">Edit</a> |
+                <a href="/delete/<% pengguna.id %>">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+
+    <h2>Tambah pengguna baru</h2>
+    <form action="/add" method="post">
+        <label for="nama">Nama :</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="Email">Email :</label>
+        <input type="email" id="email" name="email"><br>
+        <label for="phone">Telepon :</label>
+        <input type="text" id="phone" name="phone"><br>
+        <button type="submit">Tambah</button>
+    </form>
+</body>
+</html>
